@@ -1,0 +1,73 @@
+HOW IT STARTED:
+
+let EUR = prompt("Įveskite eurų kiekį:"); // dabartinis kiekis eurų
+let valiuta = prompt("Įveskite vieną iš galimų valiutų: GBP, USD, JPY, CHF arba PLN:")
+
+const GBP = 0.82640; // svarų kursas
+const USD = 1.14150; // dolerių kursas
+const JPY = 166.34300; // jenų kursas
+const CHF = 0.90960; // frankų kursas
+const PLN = 4.12400; // zlotų kursas
+
+let JK = EUR * GBP;
+let JAV = EUR * USD;
+let Japonija = EUR * JPY;
+let Šveicarija = EUR * CHF;
+let Lenkija = EUR * PLN;
+
+console.log(`Jeigu keliausite į JK, jūsų ${EUR} EUR bus verti ${JK.toFixed(2)} GBP`); // konvertavimas į svarus
+console.log(`Jeigu keliausite į JAV, jūsų ${EUR} EUR bus verti ${JAV.toFixed(2)} USD`); // konvertavimas į dolerius
+console.log(`Jeigu keliausite į Japoniją, jūsų ${EUR} EUR bus verti ${Japonija.toFixed(2)} JPY`); // konvertavimas į jenas
+console.log(`Jeigu keliausite į Šveicariją, jūsų ${EUR} EUR bus verti ${Šveicarija.toFixed(2)} CHF`); // konvertavimas į frankus
+console.log(`Jeigu keliausite į Lenkiją, jūsų ${EUR} EUR bus verti ${Lenkija.toFixed(2)} PLN`); // konvertavimas į zlotus
+
+if (valiuta === "GBP"){
+
+ console.log(`Jeigu keliausite į JK, jūsų ${EUR} EUR bus verti ${JK.toFixed(2)} GBP`)
+
+}
+
+if (valiuta === "USD") {
+
+console.log(`Jeigu keliausite į JAV, jūsų ${EUR} EUR bus verti ${JK.toFixed(2)} USD`)
+
+}
+
+if (valiuta === "JPY") {
+
+console.log(`Jeigu keliausite į Japonija, jūsų ${EUR} EUR bus verti ${JK.toFixed(2)} JPY`)
+
+}
+
+if (valiuta === "CHF") {
+
+ console.log(`Jeigu keliausite į Šveicariją, jūsų ${EUR} EUR bus verti ${JK.toFixed(2)} CHF`)
+
+}
+
+if (valiuta === "PLN") {
+
+ console.log(`Jeigu keliausite į Lenkiją, jūsų ${EUR} EUR bus verti ${JK.toFixed(2)} PLN`)
+
+//}
+
+
+HOW IT'S GOING:
+
+let EUR = Number(prompt("Įveskite eurų kiekį:"));
+let valiuta = prompt("Įveskite vieną iš galimų valiutų: GBP, USD, JPY, CHF arba PLN:");
+
+const rates = {
+  GBP: { rate: 0.82640, country: "JK" },
+  USD: { rate: 1.14150, country: "JAV" },
+  JPY: { rate: 166.34300, country: "Japonija" },
+  CHF: { rate: 0.90960, country: "Šveicariją" },
+  PLN: { rate: 4.12400, country: "Lenkiją" },
+};
+
+if (rates[valiuta]) {
+  const converted = EUR * rates[valiuta].rate;
+  console.log(`Jeigu keliausite į ${rates[valiuta].country}, jūsų ${EUR} EUR bus verti ${converted.toFixed(2)} ${valiuta}`);
+} else {
+  console.log("Neteisingai įvesta valiuta.");
+}
